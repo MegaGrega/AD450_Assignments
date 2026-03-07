@@ -15,7 +15,8 @@ def rename_columns(df):
     return df
 
 def remove_fully_null_columns_rows(df):
-    df_cleaned = df.dropna(axis=0, how='all').dropna(axis=1, how='all')
+    df_cleaned = df.copy()
+    df_cleaned = df_cleaned.dropna(axis=0, how='all').dropna(axis=1, how='all')
 
     return df_cleaned
 
