@@ -4,11 +4,13 @@ import pandas as pd
 
 def create_data():
     np.random.seed(10)
-    word_file = "/usr/share/dict/words"
-    WORDS = open(word_file).read().splitlines()
+
+    WORDS = ["Alice", "Bob", "Charlie", "Diana", "Edward", "Fiona", "George", "Hannah", "Ian", "Julia"]
     customers = pd.DataFrame({"customer_id": np.arange(1,11), 
                             "customer_age": np.random.uniform(0, 12*3, 10),
-                            "customer_name": [WORDS[i] for i in np.random.randint(1, len(WORDS), 10)]})
+                            "customer_name": WORDS})
+                            #[WORDS[i] for i in np.random.randint(1, len(WORDS), 10)]
+                            
 
     orders = pd.DataFrame({"order_id": np.arange(1,21), 
                         "customer_id": np.random.randint(1, 11, 20), 
